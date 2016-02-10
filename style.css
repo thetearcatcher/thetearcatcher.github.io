@@ -1,0 +1,98 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#container {
+	position: relative;
+}
+
+#info {
+	position: absolute;
+	right: 0px;
+}
+
+.info-icon {
+	background: url("images/info.png") no-repeat;
+	text-indent: -9999px;
+	border: none;
+	cursor: pointer;
+	padding: 0 !important;
+	z-index: 300; 
+}
+
+#film {
+	position: absolute;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+}
+
+.film-icon {
+	background: url("images/film.on.png") no-repeat;
+	text-indent: -9999px;
+	border: none;
+	cursor: pointer;
+	padding: 0 !important;
+	z-index: 300; 
+}
+
+#play {
+	position: absolute;
+	bottom: 0px;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+}
+
+.play-icon {
+	background: url("images/play.png") no-repeat;
+	text-indent: -9999px;
+	border: none;
+	cursor: pointer;
+	padding: 0 !important;
+	z-index: 300; 
+	opacity: 0.9;
+}
+
+#panel {
+	position: absolute;
+	left: 0px;
+	background: #007aff;
+	padding: 0 !important;
+	z-index: 300; 
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	cursor: default;
+	color: #000000;
+	text-align: center;
+	font-weight: bold;
+	font-size: 175%;
+	font-family: Helvetica, Arial, Sans-Serif;
+}
+
+#titles {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	z-index: 300; 
+}
+
+.white-popup {
+	position: relative;
+	background: #FFF;
+	padding: 20px;
+	width: auto;
+	max-width: 50%;
+	margin: 20px auto;
+	text-align: center;
+	font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.white-popup P {
+	margin: 0 0 10px;
+}

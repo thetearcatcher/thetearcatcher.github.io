@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- The Tear Catcher: An Animated Graphic Novel (Preview) -->
+<title>The Tear Catcher: An Animated Graphic Novel (Preview)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="manifest" href="icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="lib/magnific-popup.css" rel="stylesheet" type="text/css" />
+<link href="lib/tinycircleslider.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="lib/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="lib/jquery.tinycircleslider.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+"use strict";
+$(document).ready(function(){
+	var data;
+	var radius = 290;
+	var width;
+	var height;
+	var iconSize;
+	var smallIconSize;
+	var titleHeight;
+	var duration;
+	var frames;
+	var film = false;
+	var HD = 1920;
+	var BORDER_WIDTH = 25;
+	
+	function load(){
+		$('.video').jPlayer('setMedia', {
+			title: 'The Tear Catcher',
+			m4v: 'video/' + (data.slideCurrent) + 's.mp4',
+		});
+	}
+	
+	function resize(size, border){
+		 $('#rotatescroll').css('width', size + 'px');
+		 $('#rotatescroll').css('height', size + 'px');
+		 $('#rotatescroll').css('top', (window.innerHeight / 2) - (size / 2) + 'px');
+		 $('#rotatescroll').css('left', (window.innerWidth / 2) - (size / 2) + 'px');
+		 $('.viewport').css('width', size + 'px');
+		 $('.viewport').css('height', size + 'px');
+		 $('.overview img').css('width', size + 'px');
+		 $('.overview img').css('height', size + 'px');
+		 $('.outer-overlay').css('width', size + 'px');
+		 $('.outer-overlay').css('height', size + 'px');
+		 $('.outer-overlay').css('background', '-moz-radial-gradient(transparent ' + 
+			((size / 2) - (BORDER_WIDTH / 2)) + 'px, rgba(0,0,0,1) ' + ((size / 2)  - (BORDER_WIDTH / 2)) + 
+			'px' + ')');
+		 $('.outer-overlay').css('background', '-webkit-radial-gradient(transparent ' + 
+			((size / 2) - (BORDER_WIDTH / 2)) + 'px, rgba(0,0,0,1) ' + ((size / 2)  - (BORDER_WIDTH / 2)) + 
+			'px' + ')');
+		 $('.outer-overlay').css('background', '-ms-radial-gradient(transparent ' + 
+			((size / 2) - (BORDER_WIDTH / 2)) + 'px, rgba(0,0,0,1) ' + ((size / 2)  - (BORDER_WIDTH / 2)) + 
+			'px' + ')');
+		 $('.outer-overlay').css('background', '-o-radial-gradient(transparent ' + 
+			((size / 2) - (BORDER_WIDTH / 2)) + 'px, rgba(0,0,0,1) ' + ((size / 2)  - (BORDER_WIDTH / 2)) + 
+			'px' + ')');
+		 $('.overlay').css('width', size - (border * 2) + 'px');
+		 $('.overlay').css('height', size - (border * 2) + 'px');
+		 $('.overlay').css('border', 'solid ' + border + 'px #007aff');
+		 
+		 radius = (size / 2) - (border / 2);
+	}
+	
+	function pad(num){
+		var str = '' + num;
+		var pad = '0000';
+		
+		return pad.substring(0, pad.length - str.length) + str;
+	}
+	
+	$('.overview').html(
+		'<li><img src="images/0ps0001.png" /></li>' +
+		'<li><img src="images/1ps0001.png" /></li>' +
+		'<li><img src="images/2ps0001.png" /></li>' +
+		'<li><img src="images/3ps0001.png" /></li>' +
+		'<li><img src="images/4ps0001.png" /></li>' +
+		'<li><img src="images/5ps0001.png" /></li>' +
+		'<li><img src="images/6ps0001.png" /></li>' +
+		'<li><img src="images/7ps0001.png" /></li>' +
+		'<li><img src="images/8ps0001.png" /></li>' +
+		'<li><img src="images/9ps0001.png" /></li>' +
+		'<li><img src="images/10ps0001.png" /></li>' +
+		'<li><img src="images/11ps0001.png" /></li>' +
+		'<li><img src="images/12ps0001.png" /></li>' +
+		'<li><img src="images/13ps0001.png" /></li>' +
+		'<li><img src="images/14ps0001.png" /></li>' +
+		'<li><img src="images/15ps0001.png" /></li>' +
+		'<li><img src="images/16ps0001.png" /></li>' +
+		'<li><img src="images/17ps0001.png" /></li>'
+	);
+
+	if (window.innerHeight < HD){
+		iconSize = 72;
+		smallIconSize = 36;
+		titleHeight = 72;
+	}
+	else {
+		iconSize = 144;
+		smallIconSize = 72;
+		titleHeight = 144;
+	}
+	
+	width = height = Math.min(window.innerWidth, window.innerHeight - iconSize - titleHeight - 20);
+	resize(width, BORDER_WIDTH);	
+		
+	$('#info').magnificPopup({
+		items: {
+			src: '#info-dialog',
+			type: 'inline'
+		}
+	});
+	$('#info').css('right', ((window.innerWidth - width) / 2) + 5);
+	$('#info').css('top', Math.min(window.innerHeight - iconSize - 5, ((window.innerHeight + height) / 2) + 10));
+	$('.info-icon').css('width', iconSize + 'px');
+	$('.info-icon').css('height', iconSize + 'px');
+	$('.info-icon').css('background-size', iconSize + 'px ' + iconSize + 'px');
+	
+	$('#film').css('top', Math.min(window.innerHeight - iconSize - 5, ((window.innerHeight + height) / 2) + 10));
+	$('.film-icon').css('width', iconSize + 'px');
+	$('.film-icon').css('height', iconSize + 'px');
+	$('.film-icon').css('background-size', iconSize + 'px ' + iconSize + 'px');
+	$('#film').click(function(event){
+		if (film){
+			film = false;
+			$('.film-icon').css('background-image', 'url(images/film.on.png)');
+			$('#titles').show();
+			$('.audio').jPlayer('stop');
+			data.move(0);
+		}
+		else {
+			film = true;
+			$('.film-icon').css('background-image', 'url(images/film.off.png)');
+			$('#play').hide();
+			$('#titles').hide();
+			$('.audio').show();
+			$('.audio').jPlayer('play');
+			data.move(1);
+		}
+	});
+	
+	$('#play').css('bottom', (window.innerHeight / 2) - (width / 2) + BORDER_WIDTH + 5 + 'px');
+	$('.play-icon').css('width', smallIconSize + 'px');
+	$('.play-icon').css('height', smallIconSize + 'px');
+	$('.play-icon').css('background-size', smallIconSize + 'px ' + smallIconSize + 'px');
+	$('#play').hide();
+	$('#play').click(function(event){
+		$('#play').hide();
+		$('.video').jPlayer('play', 0);
+	});
+	
+	$('#panel').css('left', ((window.innerWidth - width) / 2) + 5);
+	$('#panel').css('top', Math.min(window.innerHeight - iconSize - 5, ((window.innerHeight + height) / 2) + 10));
+	$('#panel').css('width', iconSize + 'px');
+	$('#panel').css('height', iconSize + 'px');
+	$('#panel').css('line-height', iconSize + 'px');
+	$('#panel').css('border-radius', iconSize / 2 + 'px');
+	$('#panel').css('background-size', iconSize + 'px ' + iconSize + 'px');
+	$('#panel').html('0');
+	
+	$('#titles').css('bottom', Math.min(window.innerHeight - titleHeight - 5, ((window.innerHeight + height) / 2) + 10));
+//	$('#titles').css('background', 'url("images/titles0001.png") no-repeat');
+	$('#titles').css('width', (width - 10) + 'px');
+	$('#titles').css('height', '72px');
+	$('#titles').css('background-size', (width - 10) + 'px' + ' ' + titleHeight + 'px');
+	
+	$('.video').on('dragstart', function(event) { event.preventDefault(); });
+	$('.video').jPlayer({
+		loadeddata: function(event) {
+			duration = $('.video').data('jPlayer').status.duration * 24;
+			
+			$('.video').show();
+			$('.video').jPlayer('play');
+		},
+/*		ended: function(event) {
+			$('.video').hide();
+		},*/
+		pause: function(event){
+			if (film){
+				if (data.slideCurrent < data.slidesTotal - 1){
+					data.move(data.slideCurrent + 1);
+				}
+				else {
+					$('#film').trigger('click');
+				}
+			}
+			else {
+				$('#play').show();
+			}
+		},
+		timeupdate: function(event) {
+			frames = $('.video').data('jPlayer').status.currentTime * 24;
+			
+			if (duration - frames <= 12){
+				$('.video').jPlayer('pause');
+			}
+		},
+		preload: 'auto',
+		supplied: 'm4v',
+		size: {
+			width: width + 'px',
+			height: height + 'px',
+		},
+	});
+	$('.audio').jPlayer({
+		ready: function(){
+			$(this).jPlayer('setMedia', {
+				title: 'leaves of grass',
+				m4a: 'audio/preview.m4a',
+			});
+		},
+		supplied: 'm4a',
+	});
+	
+	$('#rotatescroll').tinycircleslider({
+		dotsSnap: true,
+		dotsHide: true,
+		radius: radius,
+	});
+	data = $('#rotatescroll').data('plugin_tinycircleslider');
+	$('#rotatescroll')
+		.bind('move', function(){
+			load();
+			$('#panel').html(data.slideCurrent);
+			if (!film){
+				$('#titles').css('background', 'url("images/titles' + pad(data.slideCurrent) + '.png") no-repeat');
+				$('#titles').css('background-size', (width - 10) + 'px' + ' ' + titleHeight + 'px');
+				$('#titles').fadeIn('slow');
+			}
+			localStorage.setItem("slide", data.slideCurrent);
+		})
+		.bind('start', function(){
+			$('.video').fadeOut('slow');
+			$('#play').hide();
+			if (!film){
+				$('#titles').fadeOut('slow');
+			}
+		});
+	data.move(Number(localStorage.getItem("slide")));
+		
+	$(window).resize(function(){
+		window.location.href = window.location.href;
+	});
+});
+//]]>
+</script>
+</head>
+<body style="background-color:#000000;">
+<div id="container">
+	<div id="rotatescroll">
+		<div class="viewport">
+			<ul class="overview">
+				<!--li><img src="images/1ps0000.png" /></li>
+				<li><img src="images/2ps0000.png" /></li>
+				<li><img src="images/3ps0000.png" /></li-->
+			</ul>
+		</div>
+		<div class="dot"></div>
+		<div class="outer-overlay"></div>
+		<div class="overlay"></div>
+		<div class="thumb"></div>
+		<div class="video"></div>
+		<div class="audio"></div>
+	</div>
+</div>
+<div id="info">
+	<button type="button" class="info-icon" id="info">info</button>
+</div>
+<div id="film">
+	<button type="button" class="film-icon" id="film">film</button>
+</div>
+<div id="info-dialog" class="white-popup mfp-hide"><p></p>
+	<p>In Graphic Novel mode, drag the black knob around the dial to move between animated panels.
+	The <b>Panel</b> icon on the bottom left of the screen displays the current the panel number.</p>
+	<p>Clicking the <b>Film</b> button on the bottom center of the screen turns on Film mode, letting
+	you watch the story like an animated film instead of reading it. In this mode, the titles on top of 
+	the screen disappear and music plays with the animation. Clicking the <b>Film</b> button again
+	returns you to Graphic Novel mode.</p>
+	<p>"Leaves of Grass" performed by Rations. Creative Commons license.</p>
+	<p><small>created by colin cohen<br><a href="mailto:tearcatcher@cc600.com">cohen@cc600.com</a></small></p>
+</div>
+<div id="play">
+	<button type="button" class="play-icon" id="play">play</button>
+</div>
+<div id="panel"></div>
+<div id="titles"></div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+img { 
+	border: 0; 
+}
+
+/* Tiny Circleslider */
+#rotatescroll { 
+/*	margin: auto;
+	left: 0;
+	right: 0;*/
+	height:600px; 
+	position: relative; 
+	width:600px; 
+}
+
+#rotatescroll .viewport { 
+	height:600px; 
+	position: relative; 
+	margin:0 auto; 
+	overflow:hidden; 
+	width:600px; 
+	pointer-events: none 
+}
+
+#rotatescroll .overview { 
+	position: absolute;
+	list-style: none; 
+	margin: 0; 
+	padding: 0;  
+	left: 0; 
+	top: 0; 
+}
+
+#rotatescroll .overview img { 
+	height: 600px; 
+	width: 600px; 
+	float: left; 
+	position: relative; 
+}
+
+#rotatescroll .outer-overlay {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background: -moz-radial-gradient(transparent 300px, rgba(0,0,0,1) 300px);
+	background: -webkit-radial-gradient(transparent 300px, rgba(0,0,0,1) 300px);
+	background: -ms-radial-gradient(transparent 300px, rgba(0,0,0,1) 300px);
+	background: -o-radial-gradient(transparent 300px, rgba(0,0,0,1) 300px);
+	pointer-events: none; /* send mouse events beneath this layer */
+	z-index: 25;  
+}
+
+#rotatescroll .overlay {
+/*	background:url(images/bg-rotatescroll.png) no-repeat 0 0; */
+	-webkit-border-radius: 50%/50%;
+	-moz-border-radius: 50%/50%;
+	-ms-border-radius: 50%/50%;
+	-o-border-radius: 50%/50%;
+	border-radius: 50%/50%;
+	border:solid 20px #5ac8fa;
+	pointer-events: none; 
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+	z-index: 50;  
+	height:560px; 
+	width:560px;
+}
+
+#rotatescroll .thumb { 
+/*	background:url(images/bg-thumb.png) no-repeat 50% 50%;*/
+	background: #000000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	touch-action: none; 
+	-ms-touch-action: none; 
+	position: absolute; 
+	cursor: pointer; 
+	width: 20px; 
+	z-index: 200;  
+	height: 20px; 
+}
+
+#rotatescroll .dot { 
+/*	background:url(images/bg-dot.png) no-repeat 0 0;
+	background: #000000;*/
+	opacity: 0.5;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+	height: 6px; 
+	width: 6px; 
+	position: absolute; 
+	z-index: 100;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #000000;	
+	display: none; 
+}
+
+#rotatescroll .dot span { 
+	display: none; 
+}
+
+#rotatescroll .video {
+	position: absolute;
+	display: none;
+	margin: 0 auto;
+	left: 0; 
+	top: 0; 
+	z-index: 10;  
+}
+
