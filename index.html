@@ -32,6 +32,7 @@
 <script type="text/javascript" src="lib/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="lib/jquery.jplayer.min.js"></script>
 <script type="text/javascript" src="lib/jquery.tinycircleslider.js"></script>
+<script type="text/javascript" src="lib/mobile-detect.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 "use strict";
@@ -41,6 +42,7 @@ $(document).ready(function(){
 	var width;
 	var height;
 	var iconSize;
+	var size;
 	var smallIconSize;
 	var titleHeight;
 	var duration;
@@ -49,10 +51,16 @@ $(document).ready(function(){
 	var HD = 1920;
 	var BORDER_WIDTH = 25;
 	
+	var md = new MobileDetect(window.navigator.userAgent);
+	if (md.mobile() != null){
+		document.body.innerHTML = '<p class="white-popup">This app currently requires a desktop browswer.</p>';
+		return;
+	}
+	
 	function load(){
 		$('.video').jPlayer('setMedia', {
 			title: 'The Tear Catcher',
-			m4v: 'video/' + (data.slideCurrent) + 's.mp4',
+			m4v: 'video/' + (data.slideCurrent) + size + '.mp4',
 		});
 	}
 	
@@ -93,38 +101,45 @@ $(document).ready(function(){
 		return pad.substring(0, pad.length - str.length) + str;
 	}
 	
-	$('.overview').html(
-		'<li><img src="images/0ps0001.png" /></li>' +
-		'<li><img src="images/1ps0001.png" /></li>' +
-		'<li><img src="images/2ps0001.png" /></li>' +
-		'<li><img src="images/3ps0001.png" /></li>' +
-		'<li><img src="images/4ps0001.png" /></li>' +
-		'<li><img src="images/5ps0001.png" /></li>' +
-		'<li><img src="images/6ps0001.png" /></li>' +
-		'<li><img src="images/7ps0001.png" /></li>' +
-		'<li><img src="images/8ps0001.png" /></li>' +
-		'<li><img src="images/9ps0001.png" /></li>' +
-		'<li><img src="images/10ps0001.png" /></li>' +
-		'<li><img src="images/11ps0001.png" /></li>' +
-		'<li><img src="images/12ps0001.png" /></li>' +
-		'<li><img src="images/13ps0001.png" /></li>' +
-		'<li><img src="images/14ps0001.png" /></li>' +
-		'<li><img src="images/15ps0001.png" /></li>' +
-		'<li><img src="images/16ps0001.png" /></li>' +
-		'<li><img src="images/17ps0001.png" /></li>'
-	);
-
-	if (window.innerHeight < HD){
+	iconSize = 72;
+	smallIconSize = 36;
+	titleHeight = 72;
+	size = 's';
+	
+/*	if (window.innerHeight < HD){
 		iconSize = 72;
 		smallIconSize = 36;
 		titleHeight = 72;
+		size = 's';
 	}
 	else {
 		iconSize = 144;
 		smallIconSize = 72;
 		titleHeight = 144;
-	}
+		size = 'l';
+	}*/
 	
+	$('.overview').html(
+		'<li><img src="images/0p' + size + '0001.png" /></li>' +
+		'<li><img src="images/1p' + size + '0001.png" /></li>' +
+		'<li><img src="images/2p' + size + '0001.png" /></li>' +
+		'<li><img src="images/3p' + size + '0001.png" /></li>' +
+		'<li><img src="images/4p' + size + '0001.png" /></li>' +
+		'<li><img src="images/5p' + size + '0001.png" /></li>' +
+		'<li><img src="images/6p' + size + '0001.png" /></li>' +
+		'<li><img src="images/7p' + size + '0001.png" /></li>' +
+		'<li><img src="images/8p' + size + '0001.png" /></li>' +
+		'<li><img src="images/9p' + size + '0001.png" /></li>' +
+		'<li><img src="images/10p' + size + '0001.png" /></li>' +
+		'<li><img src="images/11p' + size + '0001.png" /></li>' +
+		'<li><img src="images/12p' + size + '0001.png" /></li>' +
+		'<li><img src="images/13p' + size + '0001.png" /></li>' +
+		'<li><img src="images/14p' + size + '0001.png" /></li>' +
+		'<li><img src="images/15p' + size + '0001.png" /></li>' +
+		'<li><img src="images/16p' + size + '0001.png" /></li>' +
+		'<li><img src="images/17p' + size + '0001.png" /></li>'
+	);
+
 	width = height = Math.min(window.innerWidth, window.innerHeight - iconSize - titleHeight - 20);
 	resize(width, BORDER_WIDTH);	
 		
