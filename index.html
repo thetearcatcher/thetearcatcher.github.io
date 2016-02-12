@@ -54,7 +54,8 @@ $(document).ready(function(){
 	var md = new MobileDetect(window.navigator.userAgent);
 	if (md.mobile() != null){
 		$(container).empty();
-		document.body.innerHTML = '<p class="white-popup">This app currently requires a desktop browswer.</p>';
+		document.body.innerHTML = '<p class="white-popup">This app requires a desktop browswer.' + 
+									'<br>Mobile versions are in development.</p>';
 		return;
 	}
 	
@@ -316,8 +317,11 @@ $(document).ready(function(){
 	you watch the story like an animated film instead of reading it. In this mode, the titles on top of 
 	the screen disappear and music plays with the animation. Clicking the <b>Film</b> button again
 	returns you to Graphic Novel mode.</p>
+	<p>A full-length animated graphic novel is in development, along with mobile apps.</p>
 	<p>"Leaves of Grass" performed by Rations. Creative Commons license.</p>
-	<p><small>created by colin cohen<br><a href="mailto:tearcatcher@cc600.com">cohen@cc600.com</a></small></p>
+	<p><br><small>created by colin cohen
+	<br><a onClick="javascript:window.open('mailto:thetearcatcher@cc600.com', 'mail');event.preventDefault()" href="mailto:thetearcatcher@cc600.com.com">email</a>
+	<br><a href="http://plus.google.com/113261507746817565630" target="_blank">google+</a></small></p>
 </div>
 <div id="play">
 	<button type="button" class="play-icon" id="play">play</button>
