@@ -53,9 +53,9 @@ $(document).ready(function(){
 	
 	var md = new MobileDetect(window.navigator.userAgent);
 	if (md.mobile() != null){
-//		$(document).empty();
-//		document.body.innerHTML = '<p class="white-popup">This app currently requires a desktop browswer.</p>';
-//		return;
+		$(container).empty();
+		document.body.innerHTML = '<p class="white-popup">This app currently requires a desktop browswer.</p>';
+		return;
 	}
 	
 	function load(){
