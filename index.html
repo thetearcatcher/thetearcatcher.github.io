@@ -62,10 +62,10 @@ $(document).ready(function(){
 	}
 	
 	function load(){
-/*		$('.video').jPlayer('setMedia', {
+		$('.video').jPlayer('setMedia', {
 			title: 'The Tear Catcher',
 			m4v: 'video/' + (data.slideCurrent) + size + '.mp4',
-		});*/
+		});
 	}
 	
 	function resize(size, border){
@@ -189,7 +189,7 @@ $(document).ready(function(){
 	$('#play').hide();
 	$('#play').click(function(event){
 		$('#play').hide();
-//		$('.video').jPlayer('play', 0);
+		$('.video').jPlayer('play', 0);
 	});
 	
 	$('#panel').css('left', ((window.innerWidth - width) / 2) + 5);
@@ -207,18 +207,20 @@ $(document).ready(function(){
 	$('#titles').css('height', '72px');
 	$('#titles').css('background-size', (width - 10) + 'px' + ' ' + titleHeight + 'px');
 	
-/*	$('.video').on('dragstart', function(event) { event.preventDefault(); });
+	$('.video').on('dragstart', function(event) { event.preventDefault(); });
 	$('.video').jPlayer({
 		loadeddata: function(event) {
 			duration = $('.video').data('jPlayer').status.duration * 24;
 			
+			console.log('s');
 			$('.video').show();
 			$('.video').jPlayer('play');
-		},*/
+			console.log('s');
+		},
 /*		ended: function(event) {
 			$('.video').hide();
 		},*/
-/*		pause: function(event){
+		pause: function(event){
 			if (film){
 				if (data.slideCurrent < data.slidesTotal - 1){
 					data.move(data.slideCurrent + 1);
@@ -230,21 +232,21 @@ $(document).ready(function(){
 			else {
 				$('#play').show();
 			}
-		},*/
-//		timeupdate: function(event) {
-/*			frames = $('.video').data('jPlayer').status.currentTime * 24;
+		},
+		timeupdate: function(event) {
+			frames = $('.video').data('jPlayer').status.currentTime * 24;
 			
 			if (duration - frames <= 12){
 				$('.video').jPlayer('pause');
-			}*/
-//		},
-/*		preload: 'auto',
+			}
+		},
+		preload: 'auto',
 		supplied: 'm4v',
 		size: {
 			width: width + 'px',
 			height: height + 'px',
 		},
-	});*/
+	});
 	$('.audio').jPlayer({
 		ready: function(){
 			$(this).jPlayer('setMedia', {
@@ -273,7 +275,7 @@ $(document).ready(function(){
 			localStorage.setItem("slide", data.slideCurrent);
 		})
 		.bind('start', function(){
-//			$('.video').fadeOut('slow');
+			$('.video').fadeOut('slow');
 			$('#play').hide();
 			if (!film){
 				$('#titles').fadeOut('slow');
